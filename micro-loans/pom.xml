@@ -8,8 +8,8 @@
 		<version>3.5.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.microBank</groupId>
-	<artifactId>microAccounts</artifactId>
+	<groupId>com.microLoans</groupId>
+	<artifactId>micro-loans</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>microAccounts</name>
 	<description>Demo project for Spring Boot</description>
