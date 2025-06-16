@@ -1,5 +1,6 @@
 package com.microLoans.micro_loans.controller;
 
+import com.microLoans.micro_loans.DTO.AccountsContactDto;
 import com.microLoans.micro_loans.DTO.ErrorResponseDto;
 import com.microLoans.micro_loans.DTO.LoansDto;
 import com.microLoans.micro_loans.DTO.ResponseDto;
@@ -14,6 +15,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -33,6 +35,9 @@ import org.springframework.web.bind.annotation.*;
 @AllArgsConstructor
 @Validated
 public class LoansController {
+
+    @Autowired
+    private AccountsContactDto accountsContactDto;
 
     private ILoansService iLoansService;
 
@@ -162,6 +167,13 @@ public class LoansController {
                     .status(HttpStatus.EXPECTATION_FAILED)
                     .body(new ResponseDto(LoansConstants.STATUS_417, LoansConstants.MESSAGE_417_DELETE));
         }
+    }
+
+    @GetMapping("/getcontactinfo")
+    public ResponseEntity<AccountsContactDto> getContactInfo() {
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(accountsContactDto);
     }
 
 }
